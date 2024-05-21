@@ -15,7 +15,7 @@ const server = net.createServer((socket) => {
 
     socket.on('data', async (data) => {
         const cdrData = Array.from(data).map(code => String.fromCharCode(code)).join('');
-        await axios.post('https://api-dev01.quantumloopai.co.uk/v1/webhook/3cx-call', { cdrData });
+        await axios.get('https://api-dev01.quantumloopai.co.uk/v1/webhook/3cx-call', { cdrData });
         socket.end();
     });
 
